@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgykoqc48dj8d"]
+
+[ext_resource type="PackedScene" uid="uid://c8wwyclamivgm" path="res://player.tscn" id="1_4ak7x"]
+[ext_resource type="Script" path="res://world.gd" id="1_goqr5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rua24"]
+size = Vector2(121, 371.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xfa8"]
+size = Vector2(727.5, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyphh"]
+size = Vector2(139, 329)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_goqr5")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Player" parent="." instance=ExtResource("1_4ak7x")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -259.0
+offset_top = 99.0
+offset_right = 266.0
+offset_bottom = 139.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-304, -10)
+shape = SubResource("RectangleShape2D_rua24")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(92, 138)
+shape = SubResource("RectangleShape2D_7xfa8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(315.5, -12.5)
+shape = SubResource("RectangleShape2D_qyphh")
